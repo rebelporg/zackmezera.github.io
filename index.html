@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zack Mezera</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #efefef;
+      --ink: #1a1714;
+      --ink-mid: #4a4540;
+      --ink-light: #8a8480;
+      --accent: #b85c38;
+      --rule: #d8d2c8;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 5rem 2rem 6rem;
+    }
+
+    /* Header */
+    .site-header {
+      margin-bottom: 4rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .site-header h1 {
+      font-family: 'IBM Plex Sans', serif;
+      font-weight: 400;
+      font-size: 2.4rem;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+    }
+
+    .site-header .tagline {
+      font-size: 0.85rem;
+      color: var(--ink-light);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    /* Main content */
+    .main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+      margin-bottom: 3.5rem;
+    }
+
+    @media (max-width: 560px) {
+      .main { grid-template-columns: 1fr; gap: 2rem; }
+      .photo { order: -1; }
+    }
+
+    .photo {
+      position: sticky;
+      top: 2rem;
+    }
+
+    .photo img {
+      width: 100%;
+      display: block;
+      filter: grayscale(15%);
+      border-radius: 2px;
+    }
+
+    .bio p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .bio p:last-child { margin-bottom: 0; }
+
+    .bio em {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--ink-mid);
+    }
+
+    /* Research section */
+    .section {
+      margin-bottom: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .section p {
+      font-size: 0.975rem;
+      line-height: 1.8;
+      color: var(--ink-mid);
+    }
+
+    /* Links section */
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.2rem;
+      margin-top: 1.2rem;
+    }
+
+    .links a {
+      font-size: 0.875rem;
+      color: var(--ink-mid);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .links a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Writing link */
+    .writing-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--ink-mid);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1px;
+      margin-top: 1rem;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .writing-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .writing-link::after {
+      content: '→';
+      font-size: 0.8rem;
+    }
+
+    /* Footer */
+    .site-footer {
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .site-footer .contact {
+      font-size: 0.85rem;
+      color: var(--ink-light);
+    }
+
+    .site-footer .contact a {
+      color: var(--ink-mid);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1px;
+      transition: color 0.15s;
+    }
+
+    .site-footer .contact a:hover { color: var(--accent); }
+
+    .site-footer .provenance {
+      font-size: 0.8rem;
+      color: var(--ink-light);
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Fade in */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .page { animation: fadeUp 0.5s ease both; }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header class="site-header">
+      <h1>Zack Mezera</h1>
+      <p class="tagline">Providence, RI</p>
+    </header>
+
+    <div class="main">
+      <div class="bio">
+        <p>Organizer</p>
+        <p>MTS candidate at Harvard Divinity School</p>
+        <p>Building <a href="https://movementservices.org" style="color:inherit;border-bottom:1px solid var(--rule);text-decoration:none;">Movement Services</a></p>
+      </div>
+      <div class="photo">
+        <img src="photo.jpg" alt="Zack Mezera">
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Research</p>
+      <p>My work centers on <em>metalepsis</em> — the moment when a story's frame becomes visible and breakable — as a technology of transformation. Drawing on Gérard Genette's formal narratology and Alain Badiou's theory of the event, I ask how narrative genres constitute subjects, and how conversion and political transformation exploit the same formal mechanisms. Touchstones include Borges, Nabokov, Tokarczuk, Tulathimutte, Lynch, Schoenbrun, and games like TUNIC and Fez.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Writing</p>
+      <p>Essays on organizing, religion, media, and narrative breaks.</p>
+      <a class="writing-link" href="https://tofarshores.substack.com">To Far Shores on Substack</a>
+    </div>
+
+    <div class="section">
+      <p class="section-label">Elsewhere</p>
+      <div class="links">
+        <a href="https://www.linkedin.com/in/zackmezera/">LinkedIn</a>
+        <a href="https://twitter.com/zackmezera">Twitter / X</a>
+        <a href="https://bsky.app/profile/zackmezera.bsky.social">Bluesky</a>
+        <a href="https://hds.academia.edu/zackmezera">Academia.edu</a>
+        <a href="https://hcommons.org/members/zackmezera/">Humanities Commons</a>
+        <a href="https://orcid.org/0009-0007-4617-1904">ORCID</a>
+        <a href="https://scholar.google.com/citations?user=zackmezera">Google Scholar</a>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <p class="contact">
+        <a href="mailto:zackmezera@pm.me">zackmezera@pm.me</a>
+      </p>
+      <p class="provenance">Providence, RI &nbsp;·&nbsp; 2026</p>
+    </footer>
+
+  </div>
+</body>
+</html>
